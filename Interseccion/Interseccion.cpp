@@ -1,9 +1,9 @@
-// Sesion 20_08_14.cpp: archivo de proyecto principal.
+// Interseccion.cpp: archivo de proyecto principal.
 
 #include "stdafx.h"
 #include "Form1.h"
 
-using namespace Sesion20_08_14;
+using namespace Interseccion;
 
 [STAThreadAttribute]
 int main(array<System::String ^> ^args)

@@ -1,7 +1,7 @@
 #pragma once
 
-namespace Sesion20_08_14 {
-	
+namespace Interseccion {
+
 	#include <stdlib.h>
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -16,15 +16,6 @@ namespace Sesion20_08_14 {
 	public ref class Form1 : public System::Windows::Forms::Form
 	{
 	public:
-		ref struct Nodo
-		{
-			Nodo^ link;
-			int info;
-		};
-
-		static Nodo^ PTR1 = nullptr;
-		static Nodo^ PTR2 = nullptr;
-		static Nodo^ PTR3 = nullptr;
 		Form1(void)
 		{
 			InitializeComponent();
@@ -46,14 +37,13 @@ namespace Sesion20_08_14 {
 		}
 	private: System::Windows::Forms::ListBox^  listBox1;
 	protected: 
-
+	private: System::Windows::Forms::ListBox^  listBox2;
 	private: System::Windows::Forms::ListBox^  listBox3;
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::Label^  label2;
 	private: System::Windows::Forms::Label^  label3;
 	private: System::Windows::Forms::Button^  button1;
 	private: System::Windows::Forms::Button^  button2;
-	private: System::Windows::Forms::ListBox^  listBox2;
 
 	private:
 		/// <summary>
@@ -65,9 +55,127 @@ namespace Sesion20_08_14 {
 		/// <summary>
 		/// Método necesario para admitir el Diseñador. No se puede modificar
 		/// el contenido del método con el editor de código.
-		/// </summary>}
-		
-		void AgregarPila(){
+		/// </summary>
+		void InitializeComponent(void)
+		{
+			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
+			this->listBox2 = (gcnew System::Windows::Forms::ListBox());
+			this->listBox3 = (gcnew System::Windows::Forms::ListBox());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->SuspendLayout();
+			// 
+			// listBox1
+			// 
+			this->listBox1->FormattingEnabled = true;
+			this->listBox1->ItemHeight = 32;
+			this->listBox1->Location = System::Drawing::Point(12, 67);
+			this->listBox1->Name = L"listBox1";
+			this->listBox1->Size = System::Drawing::Size(205, 260);
+			this->listBox1->TabIndex = 0;
+			// 
+			// listBox2
+			// 
+			this->listBox2->FormattingEnabled = true;
+			this->listBox2->ItemHeight = 32;
+			this->listBox2->Location = System::Drawing::Point(242, 67);
+			this->listBox2->Name = L"listBox2";
+			this->listBox2->Size = System::Drawing::Size(205, 260);
+			this->listBox2->TabIndex = 1;
+			// 
+			// listBox3
+			// 
+			this->listBox3->FormattingEnabled = true;
+			this->listBox3->ItemHeight = 32;
+			this->listBox3->Location = System::Drawing::Point(469, 67);
+			this->listBox3->Name = L"listBox3";
+			this->listBox3->Size = System::Drawing::Size(205, 260);
+			this->listBox3->TabIndex = 2;
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(12, 32);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(96, 32);
+			this->label1->TabIndex = 3;
+			this->label1->Text = L"Lista 1";
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(244, 32);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(96, 32);
+			this->label2->TabIndex = 4;
+			this->label2->Text = L"Lista 2";
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Location = System::Drawing::Point(472, 32);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(163, 32);
+			this->label3->TabIndex = 5;
+			this->label3->Text = L"Interseccion";
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(143, 351);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(179, 51);
+			this->button1->TabIndex = 6;
+			this->button1->Text = L"Llenar Lista";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &Form1::button1_Click);
+			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(372, 351);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(176, 51);
+			this->button2->TabIndex = 7;
+			this->button2->Text = L"Interseccion";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &Form1::button2_Click);
+			// 
+			// Form1
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(16, 32);
+			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->ClientSize = System::Drawing::Size(704, 442);
+			this->Controls->Add(this->button2);
+			this->Controls->Add(this->button1);
+			this->Controls->Add(this->label3);
+			this->Controls->Add(this->label2);
+			this->Controls->Add(this->label1);
+			this->Controls->Add(this->listBox3);
+			this->Controls->Add(this->listBox2);
+			this->Controls->Add(this->listBox1);
+			this->Font = (gcnew System::Drawing::Font(L"Arial", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
+				static_cast<System::Byte>(0)));
+			this->Margin = System::Windows::Forms::Padding(8, 7, 8, 7);
+			this->Name = L"Form1";
+			this->Text = L"Interseccion entre dos listas";
+			this->ResumeLayout(false);
+			this->PerformLayout();
+
+		}
+
+		ref struct Nodo
+		{
+			Nodo^ link;
+			int info;
+		};
+
+		static Nodo^ PTR1 = nullptr;
+		static Nodo^ PTR2 = nullptr;
+		static Nodo^ PTR3 = nullptr;
+
+		void agregarAleatorio(){
 				Nodo^ Q = gcnew Nodo();
 				Q->info= rand() % 15 + 1;
 				Q->link=PTR1;
@@ -78,30 +186,17 @@ namespace Sesion20_08_14 {
 				PTR2=p;
 		}
 
-		void mostrar(){
-			listBox1->Items->Clear();
-			listBox2->Items->Clear();
-			listBox3->Items->Clear();
+		void mostrar(ListBox^ l, Nodo^ ptr){
+			l->Items->Clear();
 			Nodo^ P = gcnew Nodo();
-			Nodo^ Q = gcnew Nodo();
-			Nodo^ R = gcnew Nodo();
-			P = PTR1;
-			Q = PTR2;
-			R = PTR3;
+			P = ptr;
 			while(P != nullptr){
-				listBox1->Items->Add(P->info);
+				l->Items->Add(P->info);
 				P=P->link;
 			}
-			while(Q != nullptr){
-				listBox2->Items->Add(Q->info);
-				Q=Q->link;
-			}
-			while(R != nullptr){
-				listBox3->Items->Add(R->info);
-				R=R->link;
-			}
 		}
-		void Inter(){
+
+		void interseccion(){
 			PTR3=nullptr;
 			Nodo^ P = gcnew Nodo();
 			Nodo^ Q = gcnew Nodo();
@@ -120,128 +215,16 @@ namespace Sesion20_08_14 {
 				P = P->link;
 			}
 		}
-		void InitializeComponent(void)
-		{
-			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
-			this->listBox3 = (gcnew System::Windows::Forms::ListBox());
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->listBox2 = (gcnew System::Windows::Forms::ListBox());
-			this->SuspendLayout();
-			// 
-			// listBox1
-			// 
-			this->listBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
-				static_cast<System::Byte>(0)));
-			this->listBox1->FormattingEnabled = true;
-			this->listBox1->ItemHeight = 31;
-			this->listBox1->Location = System::Drawing::Point(13, 31);
-			this->listBox1->Name = L"listBox1";
-			this->listBox1->Size = System::Drawing::Size(120, 190);
-			this->listBox1->TabIndex = 0;
-			// 
-			// listBox3
-			// 
-			this->listBox3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F));
-			this->listBox3->FormattingEnabled = true;
-			this->listBox3->ItemHeight = 31;
-			this->listBox3->Location = System::Drawing::Point(276, 31);
-			this->listBox3->Name = L"listBox3";
-			this->listBox3->Size = System::Drawing::Size(120, 190);
-			this->listBox3->TabIndex = 2;
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(20, 16);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(38, 13);
-			this->label1->TabIndex = 3;
-			this->label1->Text = L"Lista 1";
-			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(157, 15);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(38, 13);
-			this->label2->TabIndex = 4;
-			this->label2->Text = L"Lista 2";
-			// 
-			// label3
-			// 
-			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(288, 14);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(64, 13);
-			this->label3->TabIndex = 5;
-			this->label3->Text = L"interseccion";
-			// 
-			// button1
-			// 
-			this->button1->Location = System::Drawing::Point(101, 248);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
-			this->button1->TabIndex = 6;
-			this->button1->Text = L"Llenar";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &Form1::button1_Click);
-			// 
-			// button2
-			// 
-			this->button2->Location = System::Drawing::Point(228, 246);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(75, 23);
-			this->button2->TabIndex = 7;
-			this->button2->Text = L"Interseccion";
-			this->button2->UseVisualStyleBackColor = true;
-			this->button2->Click += gcnew System::EventHandler(this, &Form1::button2_Click);
-			// 
-			// listBox2
-			// 
-			this->listBox2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20));
-			this->listBox2->FormattingEnabled = true;
-			this->listBox2->ItemHeight = 31;
-			this->listBox2->Location = System::Drawing::Point(146, 31);
-			this->listBox2->Name = L"listBox2";
-			this->listBox2->Size = System::Drawing::Size(120, 190);
-			this->listBox2->TabIndex = 1;
-			// 
-			// Form1
-			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
-			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(414, 282);
-			this->Controls->Add(this->button2);
-			this->Controls->Add(this->button1);
-			this->Controls->Add(this->label3);
-			this->Controls->Add(this->label2);
-			this->Controls->Add(this->label1);
-			this->Controls->Add(this->listBox3);
-			this->Controls->Add(this->listBox2);
-			this->Controls->Add(this->listBox1);
-			this->Name = L"Form1";
-			this->Text = L"Form1";
-			this->ResumeLayout(false);
-			this->PerformLayout();
-
-		}
 #pragma endregion
-
-	private: System::Void listBox2_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
+	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+				 agregarAleatorio();
+				 mostrar(listBox1,PTR1);
+				 mostrar(listBox2,PTR2);
 			 }
-
-private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-			 AgregarPila();
-			 mostrar();
-		 }
 private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
-			 Inter();
-			 mostrar();
-		 }
+				interseccion();
+				mostrar(listBox3,PTR3);
+		     }
 };
 }
 
