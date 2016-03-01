@@ -176,14 +176,7 @@ namespace Interseccion {
 		static Nodo^ PTR3 = nullptr;
 
 		void agregarAleatorio(){
-				Nodo^ Q = gcnew Nodo();
-				Q->info= rand() % 15 + 1;
-				Q->link=PTR1;
-				PTR1=Q;
-				Nodo^ p = gcnew Nodo();
-				p->info= rand() % 15 + 1;
-				p->link=PTR2;
-				PTR2=p;
+		//vacio oh god why!!
 		}
 
 		void mostrar(ListBox^ l, Nodo^ ptr){
@@ -197,23 +190,6 @@ namespace Interseccion {
 		}
 
 		void interseccion(){
-			PTR3=nullptr;
-			Nodo^ P = gcnew Nodo();
-			Nodo^ Q = gcnew Nodo();
-			P = PTR1;
-			while(P != nullptr){
-				Q=PTR2;
-				while(Q->info != P->info && Q->link != nullptr){
-					Q=Q->link;
-				}
-				if (Q->info == P->info){
-					Nodo^ S = gcnew Nodo();
-					S->info = P->info;
-					S->link=PTR3;
-					PTR3 = S;
-				}
-				P = P->link;
-			}
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
